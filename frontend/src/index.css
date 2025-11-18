@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global look: pixel-art friendly and retro font */
+:root {
+	--panel-border: #374151;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body, #root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+body {
+  /* Light aesthetic background */
+  background-color: #f3f4f6; /* light gray */
+  color: #1f2937; /* dark gray text */
+  font-family: 'Press Start 2P', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  image-rendering: pixelated;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}/* Hotbar slot styling */
+.hotbar-slot {
+	width: 64px;
+	height: 64px;
+	border: 3px solid #2B1A08; /* dark wood edge */
+	background: linear-gradient(135deg, #5A3A23 0%, #3D2818 100%); /* wood brown */
+	border-radius: 4px;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+	position: relative;
+}
+
+.hotbar-slot.active {
+	outline: 3px solid #EDEBE6; /* light highlight */
+	background: linear-gradient(135deg, #6B442B 0%, #46301E 100%);
+	box-shadow: 0 0 12px rgba(237,235,230,0.5), inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Dragon image smooth transitions */
+.dragon-image {
+	transition: opacity 0.2s ease, transform 0.3s ease-in-out;
+}
+
+/* Dragon falling animation on death */
+@keyframes fall {
+	0% { 
+		transform: translateY(0) rotate(0deg); 
+		opacity: 1; 
+	}
+	100% { 
+		transform: translateY(100px) rotate(15deg); 
+		opacity: 0; 
+	}
+}
+
+.dragon-image.fall {
+	animation: fall 1s ease-out forwards;
+}
+
+/* Dragon shake effect on hit */
+@keyframes shake {
+	0%, 100% { transform: translate(0, 0); }
+	25% { transform: translate(4px, -4px); }
+	50% { transform: translate(-4px, 4px); }
+	75% { transform: translate(4px, 4px); }
+}
+
+.dragon-image.shake {
+	animation: shake 0.3s;
+}
+
+/* Game over overlay animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.game-over-screen {
+	animation: fadeIn 0.5s ease-out;
+}
+
+/* Modal backdrop blur when crafting opens */
+.backdrop {
+	backdrop-filter: blur(2px);
+}
+
+/* Pixel borders for modal */
+.pixel-border {
+	border-width: 4px;
+	border-style: solid;
+	border-color: #9ca3af; /* gray-400 */
+	box-shadow: 0 0 0 2px #6b7280 inset; /* gray-500 inner */
+}
+
+
