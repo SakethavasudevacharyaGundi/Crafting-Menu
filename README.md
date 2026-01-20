@@ -134,5 +134,5 @@ npm install
 npm run dev
 ```
 
-Default frontend URL: http://localhost:5173 (Vite default; it will report actual URL in terminal)
+Default frontend URL: http://localhost:5173 (Vite default)
 
