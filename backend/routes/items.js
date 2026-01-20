@@ -3,6 +3,7 @@ import express from 'express';
 import { pool } from '../db.js';
 const router = express.Router();
 
+// Fetch all items with core combat and crafting attributes
 router.get('/', async (_req, res) => {
   try {
     const result = await pool.query(
